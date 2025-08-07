@@ -1,0 +1,991 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+:root {
+    /* Background author: rengreng */
+    /* https://www.pixiv.net/en/users/14641333 */
+    --background-url: url("https://i.postimg.cc/g2PzFmL7/sakura.jpg");
+    
+    --background: #1a1425dd;
+    --background-transculent: #1a142588;
+    --background-alt: #4b3a6aaa;
+    
+    --accent: #e6d7ff;
+    --accent-alt: #b4aace;
+    
+    --text-primary: #e6d7ff;
+    --text-secondary: #e6d7ffbb;
+    --text-hover: #e3e3e3;
+    
+    --icons-primary: #8e61b6;
+    --icons-secondary: var(--accent);
+    
+    --slider-filled: var(--accent-alt);
+    --slider-unfilled: #4f3a72bb;
+    
+    --border: #8c7db322;
+    --selection: #6d5b99;
+    
+    --blur-radius: 8px;
+    --font-family: "Comic Sans MS", cursive;
+    
+    /* For icons that don't respond to the `color` property */
+    --icons-filter: hue-rotate(-110deg) grayscale(.5);
+    
+    --waveform-filter: hue-rotate(-110deg) grayscale(.5);
+    --support-box-filter: hue-rotate(45deg) grayscale(.5);
+}
+
+/* -~-~- Some things that you may want to enable -~-~-~ */
+
+/* Listen count leaderboard */
+.MuiStack-root {
+    display: none !important;
+}
+
+/* "Events near you" section */
+.velvetCakeModule {
+    display: none !important;
+}
+
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+*:not(.skipControl, .shuffleControl) {
+    font-family: var(--font-family) !important;
+    letter-spacing: 2px;
+    scrollbar-width: none;
+}
+
+*::selection {
+    background: var(--selection) !important;
+    color: white !important;
+}
+
+* {
+    caret-color: var(--accent) !important;
+}
+/* ==========================================================================
+   Main Elements
+   ========================================================================== */
+
+/* Background image */
+html::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(var(--background), var(--background)),
+        var(--background-url) !important;
+    background-attachment: fixed;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+
+#app,
+html {
+    border-color: var(--background) !important;
+    color: var(--text-primary) !important;
+}
+
+select,
+.header,
+.commentFormDisabled,
+.dropbar__content,
+.searchTitle,
+.sc-label,
+.sc-input,
+.headerMenu__link,
+.header__userNavButton,
+.compactTrackListItem,
+.modal__body,
+.artistShortcutsModalContent,
+.audibleEditForm__form,
+.g-tabs,
+.editTrackItem__content,
+.g-modal-section,
+.tabs__tabs,
+.compactTrackList__moreLink,
+.linkMenu__list,
+.autoTagger__fields,
+.autoTagger__content,
+.tokenInput__input,
+.autocompleteItem,
+.searchMenu__searchFor,
+.volume__sliderWrapper,
+.artistNavigationItem--isRead,
+.queue__panel,
+.queue__itemWrapper,
+.modal__content > div,
+.g-modal-title-h1,
+.dialog__arrow,
+.paging-eof,
+.trackManager__upsellWrapper,
+.quotaMeterWrapper,
+.soundBadge,
+.audibleEditForm__audio,
+.linkMenu,
+.g-upsell-container,
+.uploadMain__content,
+.uploadMain__foot,
+.uploadMain__hqNote,
+.uploadMain__chooserContainer,
+.queue,
+.commentForm__wrapper,
+.commentItem__like button,
+.commentItem_bodyContainer span,
+.commentItem__usernameLink,
+.commentItem__timestampLink,
+.chartTrack,
+.readMoreTile__countWrapper,
+.soundActions,
+.commentItem__creatorLink,
+.visualSound__wrapper,
+.getHeard__container,
+.playControls__inner,
+.playControls__bg,
+.callout__bubble,
+.imageDeleteButton,
+.imageEditDropdown,
+.queue__itemsHeight,
+.commentFormDisabled__container {
+    background: transparent !important;
+    border-color: var(--background) !important;
+    color: var(--text-primary) !important;
+}
+
+.fullHero__titleTextLine *,
+.sc-border-box,
+.story__track * {
+    background: var(--background);
+}
+
+.commentItem__like button,
+.storyFooter__item .uiEvoButton{
+    background: none !important;
+}
+
+.fullHero,
+.uiEvoButton--isSelected {
+    background: var(--border) !important;
+}
+
+.truncatedUserDescription__wrapper::after,
+.truncatedAudioInfo__wrapper::after {
+    background: linear-gradient(transparent, var(--background)) !important;
+    opacity: .5;
+}
+
+/* All overlays */
+#searchMenuList,
+.headerMenu,
+.moreActions__group,
+.dropdownContent__container,
+.userDropbar,
+.gritter-item-wrapper,
+.MuiTooltip-tooltip,
+.dialog {
+    background: var(--background-transculent) !important;
+    backdrop-filter: blur(var(--blur-radius));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlays with animation */
+#searchMenuList,
+.headerMenu,
+.moreActions__group,
+.dropdownContent__container {
+    animation: fadeIn 0.15s ease-in;
+}
+
+/* Overlays with rounded bottom */
+.headerMenu,
+#searchMenuList {
+    border-radius: 0px 0px 16px 16px !important;
+}
+
+/* Tweaks for some parts of overlays */
+.listenNetworkTabs {
+    background: transparent !important;
+}
+
+.searchMenu__searchFor {
+    box-shadow: 0px 1px var(--border) !important;
+}
+
+.streamSidebar .webiEmbeddedModuleContainer,
+.mixedSelectionModule:has(.selectionPlaylistBanner),
+li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
+.userSidebar iframe {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* Inbox */
+
+.conversation__stickyHeader,
+.conversation__actions,
+.composeMessage__toolbar,
+.conversation .conversation__form {
+    background: transparent !important;
+}
+
+.minorProtectionBanner__container {
+    background: var(--background);
+    border-radius: 8px;
+}
+
+.inboxItem.active,
+.inboxItem:hover {
+    background: var(--background-alt) !important;
+}
+
+/* Artist support box */
+
+.directSupport__box {
+    border-radius: 1rem !important;
+    filter: var(--support-box-filter);
+    background: transparent;
+}
+
+.directSupport__copy {
+    display: none !important;
+}
+
+.directSupport__button svg {
+    color: var(--accent);
+}
+
+.directSupport__box a:hover {
+    filter: brightness(115%);
+}
+
+
+/* Permalink field */
+
+.permalinkTextfield__prefixText {
+    background: var(--background-alt);
+    border-radius: .75rem 0 0 .75rem;
+}
+
+/* Track header in track page */
+.soundTitle__titleContainer {
+    --radius: 12px;
+    --padding: 8px;
+}
+
+.soundTitle__titleHeroContainer h1 {
+    background: var(--background-transculent) !important;
+    border-radius: var(--radius) var(--radius) var(--radius) 0px !important;
+    padding: var(--padding) !important;
+    z-index: 1;
+}
+
+.soundTitle__usernameHeroContainer {
+    position: relative;
+}
+
+.soundTitle__usernameHeroContainer h2 {
+    border-radius: 0px var(--radius) var(--radius) var(--radius) !important;
+    padding: var(--padding) !important;
+    position: absolute !important;
+    top: -4px !important;
+}
+
+.fullHero__parentLink {
+    position: absolute !important;
+    top: 155px !important;
+}
+
+/* Track Items */
+.trackItem {
+    transition: .1s all;
+    border-radius: 1.5rem !important;
+    padding: 0 6px !important;
+    width: 100%;
+    background: transparent !important;
+}
+
+.trackItem.hover {
+    width: 100%;
+    margin: 0px;
+}
+
+.trackItem .sc-button-group {
+    background: transparent !important;
+}
+
+.trackItem.active,
+.trackItem.active:focus-visible,
+.trackItem.removing,
+.trackItem:hover {
+    background: var(--background-alt) !important;
+}
+
+.trackItem.active .sc-button-group,
+.trackItem:hover .sc-button-group {
+    background: var(--background-alt) !important;
+}
+
+.trackItem .sc-button-group .sc-button-more,
+.headerSearch__input {
+    border: none !important;
+}
+
+/* Placeholder */
+
+.audibleTilePlaceholder::before {
+    background: var(--background-alt);
+}
+
+/* Modals */
+.modal {
+    background: var(--background-transculent) !important;
+}
+
+/* Keyboard Shortcuts */
+.keyboardShortcuts__inner .sc-text-captions {
+    background: var(--border) !important;
+}
+
+/* Header Menu */
+.headerMenu__link:hover {
+    filter: brightness(150%);
+}
+
+/* Comment Form */
+.commentForm__input,
+.commentForm__submitButton {
+    background: transparent !important;
+    border: 1px solid var(--background-alt) !important;
+}
+
+/* Tags */
+.sc-tag {
+    background: var(--background-alt) !important;
+    border: none !important;
+}
+
+.sc-tag:hover {
+    filter: brightness(120%);
+    transition: background 0.2s ease;
+}
+
+/* Buttons */
+.sc-button {
+    background: transparent !important;
+    border-color: var(--background) !important;
+    gap: 4px;
+}
+
+.sc-button-follow {
+    color: var(--text-primary) !important;
+}
+
+.sc-button:hover {
+    color: var(--text-secondary) !important;
+}
+
+.sc-button-selected {
+    color: var(--accent-alt) !important;
+}
+
+.sc-button-secondary:hover {
+    color: var(--text-hover) !important;
+}
+
+.imageChooser__chooseButton {
+    opacity: 0;
+    transition: all;
+    transition-duration: .2s;
+}
+
+.editImage__select:hover .imageChooser__chooseButton {
+    opacity: 1;
+}
+
+.sc-button-play {
+    background: var(--accent-alt) !important;
+}
+
+.sc-button-dropdown:not(.sc-button-disabled):not(:disabled) {
+    color: var(--accent) !important;
+    box-shadow: none !important;
+}
+
+/* Tile Gallery */
+.tileGallery__sliderButton {
+    background: var(--background-transculent) !important;
+}
+
+.tileGallery__sliderButton::after {
+    border-color: var(--text-primary) !important;
+}
+
+/* Header Logo */
+.header__logo {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.header__link,
+.header__navMenuItem:not(.selected),
+.sidebarHeader__more,
+.listenAttributes__attribute *,
+input::placeholder {
+    color: var(--text-secondary) !important;
+}
+
+.profileHeaderInfo__additional {
+    color: var(--accent-alt) !important;
+}
+
+.g-tabs-link {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.playControls__next {
+    margin-right: 10px;
+}
+
+.shuffleControl,
+.repeatControl,
+.story__track__title {
+    transform: scale(1.1) !important;
+    border: none;
+}
+
+.artistShortcutTile__badge {
+    transform: scale(1.2) !important;
+}
+
+.infoStats__value,
+.volume__sliderHandle {
+    transform: scale(0.85) !important;
+}
+
+.volume__sliderProgress {
+    width: 2px;
+}
+
+.repeatControl {
+    margin-bottom: 1px !important;
+}
+
+.playbackSoundBadge__title * {
+    color: var(--text-primary);
+}
+
+.sc-text-secondary,
+.trackItem__number {
+    color: var(--text-secondary) !important;
+}
+
+.truncatedAudioInfo__content p a,
+.truncatedUserDescription__content p a {
+    color: var(--accent) !important;
+}
+
+.truncatedAudioInfo__content p a:hover,
+.truncatedUserDescription__content p a:hover {
+    color: var(--accent-alt) !important;
+}
+
+.commentItem__separator,
+.creatorLikeInline span,
+.truncatedAudioInfo__collapse,
+.commentItem__controls a,
+.sc-text-primary,
+.artistShortcutTile__username,
+.active,
+.linkMenu__activeItem .linkMenu__link,
+.linkMenu__link:hover,
+.compactTrackListItem__user,
+.compactTrackListItem__number,
+.compactTrackListItem__plays,
+.compactTrackList__moreLink,
+.active .trackItem__trackTitle,
+.m-playing .soundTitle__title,
+.userBadgeListItem__heading,
+.playableTile__heading,
+.sc-text,
+.sc-text-link,
+.sidebarHeader__actualTitle,
+.blockCheckbox__title,
+.commentItem__timestampLink,
+.soundActions__purchaseLink,
+.commentItem__creatorLink,
+.commentBadge__body a,
+.commentItem_bodyContainer a,
+.createPlaylist__saveButton,
+.sc-button-cta {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+.sc-button-more:hover,
+.sc-label,
+.sc-classic .trackItem:not(.m-disabled).active .trackItem__content {
+    color: var(--accent) !important;
+}
+
+input,
+.relativeTime,
+.sc-link-dark,
+.autocompleteItem__title,
+.playbackSoundBadge__titleLink,
+.conversationBadge__metaDataRow,
+.creatorLikeInline,
+.g-nav-link,
+.commentItem__username,
+.getHeard__firstFansMoreInfoLink a {
+    color: var(--text-primary) !important;
+}
+
+.sc-link-primary:hover,
+.commentBadge__body a:hover,
+.commentItem_bodyContainer a:hover {
+    color: var(--text-hover) !important;
+}
+
+.sc-link-secondary,
+.sidebarHeader__more__webi_style,
+.blockCheckbox__blockContent,
+.commentItem__timestamp {
+    color: var(--text-secondary) !important;
+}
+
+/* Profile Tabs */
+.g-tabs-link:not(.active) {
+    color: var(--text-primary) !important;
+}
+
+.g-tabs-link:not(.active):hover {
+    color: var(--text-hover) !important;
+}
+
+/* Info Stats */
+.infoStats__statLink {
+    color: var(--text-secondary) !important;
+}
+
+.infoStats__statLink:hover {
+    color: var(--text-primary) !important;
+}
+
+/* ==========================================================================
+   Borders and Outlines
+   ========================================================================== */
+.sc-input,
+.headerMenu__list,
+.profileSettings__form input,
+.profileSettings__form textarea,
+.sc-classic,
+.audibleTilePlaceholder::before,
+.collection__section,
+.sc-border-light-right,
+.sc-border-light-left,
+.sc-border-light-top,
+.sc-border-light-bottom,
+.chartsMain_listHeader,
+.profileTabs,
+.mixedSelectionModule,
+.sc-border-light,
+.l-about-rows,
+.dropdownContent__main,
+.g-form-section-head,
+.queueFallback__stationMode,
+.sc-border-box,
+.queue__itemsHeight,
+.m-overview {
+    border-color: transparent !important;
+}
+
+.sc-artwork {
+    outline: none !important;
+}
+
+.listenEngagement {
+    box-shadow: none !important;
+}
+
+.sidebarHeader,
+.listenEngagement,
+.searchTitle__text,
+.searchAutocomplete {
+    border: none !important;
+}
+
+.image__lightOutline {
+    background: transparent !important;
+}
+
+.sc-status-icon-activity,
+.image__whiteOutline .sc-artwork {
+    border: none !important;
+}
+
+/* ==========================================================================
+   Navigation and Menus
+   ========================================================================== */
+
+.soundTitle__titleHeroContainer h1,
+.soundTitle__usernameHeroContainer h2 {
+    background: var(--background) !important;
+}
+
+.g-nav-item.active,
+.artistNavigationItem--isActive,
+.quotaMeter__minutesUsed,
+.volume__sliderBackground {
+    background: var(--background-alt) !important;
+}
+
+.g-nav-item.active::after {
+    border-left-color: var(--background-alt) !important;
+}
+
+.localeSelectorContent__wrapper li button {
+    color: var(--accent) !important;
+}
+
+.localeSelectorContent__wrapper li button:hover {
+    color: var(--accent-alt) !important;
+}
+
+/* ==========================================================================
+   Additional Elements
+   ========================================================================== */
+.soundBadge__additional,
+.trackItem__additional,
+.editTrackItem__additional,
+.compactTrackListItem__additional {
+    background-image: none !important;
+}
+
+.selected {
+    background: var(--background) !important;
+}
+
+/* Sliders */
+.playbackTimeline__progressBar,
+.playbackTimeline__progressHandle,
+.volume__sliderProgress,
+.volume__sliderHandle {
+    background: var(--slider-filled) !important;
+    border-color: var(--slider-filled) !important;
+}
+
+.playbackTimeline__progressBackground,
+.quotaMeter__background {
+    background: var(--slider-unfilled) !important;
+}
+
+/* Background Images */
+.profileHeaderBackground__visual,
+.fullHero,
+.visuals__container {
+    border-radius: 0 0 10% 10% !important;
+}
+
+.activity .visuals__container {
+    border-radius: 10% !important;
+}
+
+.profileHeaderBackground,
+.createPlaylistSuggestion__addContainer {
+    background: none !important;
+}
+
+.sc-artwork {
+    border-radius: 3rem;
+}
+
+.sc-artwork:hover,
+.sc-artwork:focus {
+    border: none !important;
+}
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+:not(*) {
+    color: var(--icons-primary) !important;
+}
+
+.moreActions__group path,
+.creatorLikeInlineLikeIcon {
+    color: var(--icons-secondary) !important;
+}
+
+.creatorBadge__custom,
+.sc-status-icon:not(.sc-status-icon-verified),
+.notificationIcon__badge,
+.commentItem__like .sc-button-like,
+.repeatControl.m-one,
+.repeatControl.m-all,
+.m-queueVisible .playbackSoundBadge__showQueue,
+.sc-status-icon-verified,
+.sc-button-dropdown::after,
+.shuffleControl::after,
+.sc-label::before,
+.sc-toggle,
+.blockCheckbox__icon,
+.progressBar__bar,
+.sc-icon-sound-orange,
+.sc-icon-set-orange,
+.sc-icon-history-orange,
+.listDisplayToggle__badgeToggle,
+.listDisplayToggle__listToggle,
+.artistShortcutTile__badge,
+.m-shuffling {
+    filter: var(--icons-filter) !important;
+}
+
+/* ==========================================================================
+   Visual Effects
+   ========================================================================== */
+.waveform {
+    filter: var(--waveform-filter);
+    margin-top: 20px;
+}
+
+.commentPopover__username,
+.commentPopover__body {
+    filter: sepia(100%);
+}
+
+/* ==========================================================================
+   Hidden Elements
+   ========================================================================== */
+.creatorSubscriptionsButton,
+.callout__bubble::before,
+.announcements__item,
+.autoTagger,
+.l-footer,
+.banner,
+.playlistConsumerSubUpselli,
+.velvetCakeModuleWrapper,
+.playableTile__imageOverlay,
+.sc-button-insights {
+    display: none !important;
+}
+
+.paging-eof {
+    visibility: hidden !important;
+}
+
+/* ==========================================================================
+   Custom Components
+   ========================================================================== */
+.userNetworkTop__title {
+    position: relative;
+    top: 2rem;
+}
+
+.userNetworkTop__title a {
+    background-image: linear-gradient(to right, var(--accent), var(--accent-alt));
+    background-clip: text;
+    color: transparent !important;
+}
+
+.userNetworkTop__title:hover {
+    filter: brightness(125%);
+}
+
+/* ==========================================================================
+   Miscellaneous Tweaks
+   ========================================================================== */
+
+/* Prevent the profile picture from shifting */
+.profileHeader {
+    padding: 28px;
+}
+
+/* Prevent the `private` badge from shifting */
+.addToPlaylistButton {
+    width: 150px !important;
+}
+
+/* Improve spacing */
+.sc-button-group *,
+.playbackSoundBadge__actions * {
+    margin-right: -3px !important;
+}
+
+.playableTile__actionWrapper * {
+    margin-left: -2px !important;
+}
+
+.playControls__prev {
+    margin-right: 10px !important;
+}
+
+.listenNetworkSidebar {
+    padding-top: 12px;
+}
+
+.sidebarHeader {
+    padding-bottom: 12px;
+}
+
+/* Other tweaks */
+.fullHero__title .soundTitle__username {
+    position: relative;
+    top: 8px;
+}
+
+iframe {
+    border-radius: 12px !important;
+}
+
+.MuiStack-root {
+    background: var(--background) !important;
+    padding: 1px;
+}
+
+.MuiTabs-list {
+    border-color: transparent !important;
+}
+
+.MuiTypography-root {
+    color: var(--text-secondary) !important;
+}
+
+.sound__content .sceneLayer {
+    filter: brightness(0.8);
+}
+
+.profileHeaderInfo__content {
+    position: relative;
+    bottom: 30px;
+}
+
+.profileHeaderInfo__userName,
+.profileHeaderInfo__userName:hover,
+.profileHeaderInfo__additional,
+.profileHeaderInfo__additional:hover {
+    background: var(--background-transculent);
+}
+
+.profileHeaderInfo__additional:has(.creatorBadge) {
+    background: transparent;
+}
+
+.sc-truncate {
+    color: var(--accent) !important;
+}
+
+.commentBadge:hover .sc-link-primary {
+    color: inherit !important;
+}
+
+.soundBadge__artwork {
+    background-image: none !important;
+}
+
+.imageChooser__chooseButton,
+.imageEditDropdownButton {
+    background: var(--background) !important;
+}
+
+.fullHero__titleTextLine .sc-label-private,
+.moreActions {
+    background: none !important;
+    border: none;
+}
+
+#searchMenuList,
+.headerMenu,
+.dropdownMenu {
+    border: none !important;
+}
+
+.createPlaylistSuggestion__add {
+    background: var(--background) !important;
+}
+
+.bg-white {
+    background: var(--background) !important;
+}
+
+.active .trackItem__username {
+    color: #ddd !important;
+}
+
+.playableTile__playButton,
+.playableTile__actionWrapper * {
+    visibility: visible !important;
+}
+
+.storyItemProgress__progressbar {
+    filter: brightness(500%);
+}
+
+.systemPlaylistDetails__controls .sc-button {
+    margin-right: -12px !important;
+}
+
+/* ==========================================================================
+   Blurred Effects
+   ========================================================================== */
+.header__navMenuItem,
+.headerSearch__input,
+.header__userNav a,
+.playControls__wrapper,
+.headerMenu *,
+.dropbar__content,
+.userNetworkTabs,
+#searchMenuList *:not(.sc-media-image, .sc-artwork) {
+    background: transparent !important;
+}
+
+.header__logo {
+    display: none !important;
+}
+
+.header,
+.playControls__inner,
+.l-top:has(.userNetworkInfo.sc-browsers-enable-gpu),
+.userDropbar,
+.searchTitle {
+    background: var(--background-transculent) !important;
+    backdrop-filter: blur(var(--blur-radius));
+}
+
+.header__navMenu * {
+    border: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.listenArtistInfo__report {
+    display: none;
+}
+
+.playlistConsumerSubUpsell {
+    display: none;
+}
