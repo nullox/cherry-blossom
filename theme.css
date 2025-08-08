@@ -3,11 +3,8 @@
    ========================================================================== */
 :root {
     /* ===== BACKGROUND & IMAGE ===== */
-    /* Background author: rengreng */
-    /* https://www.pixiv.net/en/users/14641333 */
-    
-    /* Set to "none" to disable background image */
-    --bg-image: url("https://i.postimg.cc/g2PzFmL7/sakura.jpg");
+    /* Background image URL - replace with your actual image URL */
+    --bg-image: url("https://example.com/path/to/your/image.jpg");
     
     /* Overlay for background image (keep semi-transparent with bg image) */
     /* If no bg image, this becomes the main background */
