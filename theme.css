@@ -214,7 +214,8 @@ select,
 .userDropbar,
 .gritter-item-wrapper,
 .MuiTooltip-tooltip,
-.dialog {
+.dialog,
+.linkMenu {
     background: var(--surface-elevated) !important;
     backdrop-filter: blur(var(--blur-strength));
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -236,7 +237,7 @@ select,
     border-radius: 0px 0px 16px 16px !important;
 }
 
-/* Tweaks for some parts of overlays */
+/* Tweaks for some overlays */
 .listenNetworkTabs {
     background: transparent !important;
 }
@@ -273,7 +274,7 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 
 .inboxItem.active,
 .inboxItem:hover {
-    background: var(--survace-secondary) !important;
+    background: var(--surface-secondary) !important;
 }
 
 /* Artist support box */
@@ -299,7 +300,7 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 /* Permalink field */
 
 .permalinkTextfield__prefixText {
-    background: var(--survace-secondary);
+    background: var(--surface-secondary);
     border-radius: .75rem 0 0 .75rem;
 }
 
@@ -361,12 +362,12 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 .trackItem.active:focus-visible,
 .trackItem.removing,
 .trackItem:hover {
-    background: var(--survace-secondary) !important;
+    background: var(--surface-secondary) !important;
 }
 
 .trackItem.active .sc-button-group,
 .trackItem:hover .sc-button-group {
-    background: var(--survace-secondary) !important;
+    background: var(--surface-secondary) !important;
 }
 
 .trackItem .sc-button-group .sc-button-more,
@@ -377,7 +378,7 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 /* Placeholder */
 
 .audibleTilePlaceholder::before {
-    background: var(--survace-secondary);
+    background: var(--surface-secondary);
 }
 
 /* Modals */
@@ -399,12 +400,12 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 .commentForm__input,
 .commentForm__submitButton {
     background: transparent !important;
-    border: 1px solid var(--survace-secondary) !important;
+    border: 1px solid var(--surface-secondary) !important;
 }
 
 /* Tags */
 .sc-tag {
-    background: var(--survace-secondary) !important;
+    background: var(--surface-secondary) !important;
     border: none !important;
 }
 
@@ -672,6 +673,10 @@ input,
     border: none !important;
 }
 
+.commentForm__submitButton {
+    border: none !important;
+}
+
 /* ==========================================================================
    Navigation and Menus
    ========================================================================== */
@@ -685,11 +690,11 @@ input,
 .artistNavigationItem--isActive,
 .quotaMeter__minutesUsed,
 .volume__sliderBackground {
-    background: var(--survace-secondary) !important;
+    background: var(--surface-secondary) !important;
 }
 
 .g-nav-item.active::after {
-    border-left-color: var(--survace-secondary) !important;
+    border-left-color: var(--surface-secondary) !important;
 }
 
 .localeSelectorContent__wrapper li button {
@@ -1015,7 +1020,7 @@ iframe {
 }
 
 .listenArtistInfo__report {
-    display: none;
+    opacity: .6;
 }
 
 .playlistConsumerSubUpsell {
