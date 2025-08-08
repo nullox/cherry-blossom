@@ -283,6 +283,13 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
     border-radius: .75rem 0 0 .75rem;
 }
 
+/* Reload button on "Not available while you're offline" */
+
+.actions .sc-button {
+    color: var(--accent);
+    border: none;
+}
+
 /* Track header in track page */
 .soundTitle__titleContainer {
     --radius: 12px;
@@ -971,6 +978,11 @@ iframe {
 .searchTitle {
     background: var(--background-transculent) !important;
     backdrop-filter: blur(var(--blur-radius));
+}
+
+.l-top:has(.userNetworkInfo.sc-browsers-enable-gpu),
+.searchTitle {
+    border-radius: 0 0 5% 5%;
 }
 
 .header__navMenu * {
