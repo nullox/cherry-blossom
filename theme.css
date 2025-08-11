@@ -1,6 +1,21 @@
+/* ==UserStyle==
+@name         Chery Blossom
+@version      20250811.10.37
+@namespace    ?
+@description  Aesthetic purple theme with blur effects and animations. Simple to customize.
+@license      MIT
+==/UserStyle== */
+
+@-moz-document domain("soundcloud.com") {
 /* ==========================================================================
-   Variables
+   Configuration 
    ========================================================================== */
+
+/* IMPORTANT NOTE */
+
+/* To keep your custom changes safe, copy this section and save it as a separate style. This prevents updates from overwriting it. */
+
+
 :root {
     /* ===== BACKGROUND & IMAGE ===== */
     /* Background image URL - replace with your actual image URL */
@@ -68,7 +83,9 @@
 }
 
 /* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~- */
+}
 
+@-moz-document domain("soundcloud.com") {
 /* ==========================================================================
    Base Styles
    ========================================================================== */
@@ -181,10 +198,11 @@ select,
     color: var(--text-primary) !important;
 }
 
-.fullHero__titleTextLine *,
+.fullHero__titleText h1,
+.fullHero__titleText h2 a,
 .sc-border-box,
 .story__track * {
-    background: var(--surface-primary);
+    background: var(--surface-primary) !important;
 }
 
 .commentItem__like button,
@@ -212,7 +230,8 @@ select,
 .gritter-item-wrapper,
 .MuiTooltip-tooltip,
 .dialog,
-.linkMenu {
+.linkMenu,
+.queue {
     background: var(--surface-elevated) !important;
     backdrop-filter: blur(var(--blur-strength));
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -254,6 +273,20 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 /* ==========================================================================
    Components
    ========================================================================== */
+
+/* Queue */
+
+.queueItemView {
+    background: transparent !important;
+}
+
+.queueItemView.m-active {
+    background: var(--surface-secondary) !important;
+}
+
+.queue__itemsHeight {
+    padding: 0;
+}
 
 /* Inbox */
 
@@ -359,11 +392,6 @@ li.mixedModularHome__item:nth-child(4) > div:nth-child(1) > div:nth-child(1),
 .trackItem.active:focus-visible,
 .trackItem.removing,
 .trackItem:hover {
-    background: var(--surface-secondary) !important;
-}
-
-.trackItem.active .sc-button-group,
-.trackItem:hover .sc-button-group {
     background: var(--surface-secondary) !important;
 }
 
@@ -1022,4 +1050,5 @@ iframe {
 
 .playlistConsumerSubUpsell {
     display: none;
+}
 }
