@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Chery Blossom
-@version      20250811.10.37
+@version      20250819.09.25
 @namespace    ?
 @description  Aesthetic purple theme with blur effects and animations. Simple to customize.
 @license      MIT
@@ -71,10 +71,17 @@
 }
 
 /* -~-~- Some things that you may want to enable -~-~-~ */
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */
+/*           block - enabled, none - disabled           */
 
 /* Listen count leaderboard */
-.MuiStack-root {
+.sidebarModule__webiEmbeddedModule {
     display: none !important;
+}
+
+/* Buy (download) track container */
+.buyModuleEmbeddedContainer {
+    display: block !important;
 }
 
 /* Events near you */
@@ -82,7 +89,7 @@
     display: none !important;
 }
 
-/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~- */
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */
 }
 
 @-moz-document domain("soundcloud.com") {
@@ -508,8 +515,13 @@ input::placeholder {
     color: var(--text-secondary) !important;
 }
 
-.profileHeaderInfo__additional {
+.profileHeaderInfo__additional,
+.createPlaylist__goToPlaylist {
     color: var(--accent-secondary) !important;
+}
+
+.createPlaylist__goToPlaylist:hover {
+    color: var(--text-hover) !important;
 }
 
 .g-tabs-link {
@@ -912,23 +924,6 @@ input,
     top: 8px;
 }
 
-iframe {
-    border-radius: 12px !important;
-}
-
-.MuiStack-root {
-    background: var(--surface-primary) !important;
-    padding: 1px;
-}
-
-.MuiTabs-list {
-    border-color: transparent !important;
-}
-
-.MuiTypography-root {
-    color: var(--text-secondary) !important;
-}
-
 .sound__content .sceneLayer {
     filter: brightness(0.8);
 }
@@ -1051,4 +1046,46 @@ iframe {
 .playlistConsumerSubUpsell {
     display: none;
 }
+}
+
+@-moz-document url-prefix("https://soundcloud.com/n/embeds/buy-module") {
+/* Buy (download) track container */
+
+.MuiPaper-root {
+    background: var(--surface-primary);
+}
+
+.MuiStack-root :has(.MuiButtonBase-root) {
+    align-items: end;
+}
+
+.MuiStack-root .MuiButtonBase-root {
+    max-width: 200px;
+}
+
+.MuiTypography-h2 {
+    color: var(--accent-primary);
+}
+}
+
+@-moz-document url-prefix("https://soundcloud.com/n/embeds/right-hand-rail") {
+/* Listen count leaderboard */
+
+iframe {
+    border-radius: 12px !important;
+}
+
+.MuiStack-root {
+    background: var(--surface-primary) !important;
+    padding: 1px;
+}
+
+.MuiTabs-list {
+    border-color: transparent !important;
+}
+
+.MuiTypography-root {
+    color: var(--text-secondary) !important;
+}
+
 }
